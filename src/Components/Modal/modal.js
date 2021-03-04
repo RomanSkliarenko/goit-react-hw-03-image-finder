@@ -6,8 +6,10 @@ export default class Modal extends Component {
     img: PropTypes.string.isRequired,
     closeModal: PropTypes.func.isRequired,
   };
-  escapeCloseHandler = () => {
-    this.props.closeModal();
+  escapeCloseHandler = (event) => {
+    if (event.code === "Escape") {
+      this.props.closeModal();
+    }
   };
   overlayCloseHandler = (event) => {
     if (event.target === event.currentTarget) {
